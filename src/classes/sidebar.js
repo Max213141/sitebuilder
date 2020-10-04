@@ -22,20 +22,29 @@ export class Sidebar{
 
   addBlock(event){
     event.preventDefault()
+    console.log(event)
+
+    // const type = event.target.name
+    // const value = event.target.value.value
+    // const styles = event.target.styles.styles
+
+    // debugger /////////<<<<<<<<<< В этом месте тоже выдаёт ошибку "DevTools failed to load SourceMap: Could not load content for webpack:///node_modules/sockjs-client/dist/sockjs.js.map: HTTP error: status code 404, net::ERR_UNKNOWN_URL_SCHEME"
 
     const type = event.target.name;
     const value = event.target.value.value;
     const styles = event.target.styles.styles;
-
-    const Constructor = type === text ? TextBlock : TitleBlock;
+    debugger
+    const Constructor = type === "text" ? TextBlock : TitleBlock;
 
     const newBlock = new Constructor(value,{styles})
     console.log(newBlock);
 
+    this.update(newBlock)////<<<<<<<<<<<<<<<<<========================= Вот строка в которой возникает ошибка 
+
     event.target.value.value = ''
     event.target.styles.value = ''
 
-    this.update(newBlock)////<<<<<<<<<<<<<<<<<========================= Вот строка в которой возникает ошибка
+    
 
   }
 }

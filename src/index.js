@@ -10,9 +10,9 @@ const updateCallback = newBLock => {
    site.render(modal)
 }
 
-const site = new Site('#site',updateCallback);
+const site = new Site('#site');
 
-new Sidebar('#panel')
+new Sidebar('#panel',updateCallback)
 
 site.render(modal)
 
